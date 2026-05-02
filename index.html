@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student AI Study Hub</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <header class="site-header">
+    <nav class="navbar" aria-label="Primary navigation">
+      <a class="logo" href="#home" aria-label="Student AI Hub home">
+        <span class="logo-mark">AI</span>
+        <span>Student AI Hub</span>
+      </a>
+
+      <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <div class="nav-panel" id="navPanel">
+        <a class="nav-link active" href="#home" data-page-link="home">Home</a>
+        <a class="nav-link" href="#study-tools" data-page-link="study-tools">Study Tools</a>
+        <a class="nav-link" href="#coding-basics" data-page-link="coding-basics">Coding Basics</a>
+        <a class="nav-link" href="#ai-tools" data-page-link="ai-tools">AI Tools</a>
+        <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle dark and light mode">
+          <span class="toggle-orb"></span>
+          <span id="themeLabel">Dark</span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="page active" id="home" data-page="home">
+      <div class="hero full-screen reveal">
+        <div class="hero-content">
+          <p class="eyebrow">AI powered study workspace</p>
+          <h1>Level Up Your Study Game</h1>
+          <p class="hero-subtitle">Plan smarter, focus deeper, learn faster, and let AI productivity tools support every study session.</p>
+          <div class="hero-actions">
+            <a class="btn primary-btn" href="#study-tools">Open Tools</a>
+            <a class="btn ghost-btn" href="#ai-tools">Explore AI</a>
+          </div>
+        </div>
+
+        <aside class="quote-card glass-panel" aria-live="polite">
+          <p class="card-kicker">Motivation</p>
+          <blockquote id="quoteText">Small steps every day build unstoppable momentum.</blockquote>
+          <button class="btn gradient-btn" id="newQuoteBtn" type="button">New Quote</button>
+        </aside>
+      </div>
+    </section>
+
+    <section class="page" id="study-tools" data-page="study-tools">
+      <div class="section-shell full-screen reveal">
+        <div class="section-heading">
+          <p class="eyebrow">Study Tools</p>
+          <h2>Focus, plan, and remember everything.</h2>
+        </div>
+
+        <div class="tool-grid">
+          <article class="tool-card glass-panel pomodoro-card">
+            <div class="tool-title-row">
+              <div>
+                <p class="card-kicker">Pomodoro</p>
+                <h3>Study Timer</h3>
+              </div>
+              <span class="mode-pill" id="timerMode">Focus</span>
+            </div>
+            <div class="timer-ring" id="timerRing">
+              <div class="timer-inner">
+                <span id="timerDisplay">25:00</span>
+                <small id="timerHint">25 min focus</small>
+              </div>
+            </div>
+            <div class="button-row">
+              <button class="btn gradient-btn" id="startTimer" type="button">Start</button>
+              <button class="btn quiet-btn" id="pauseTimer" type="button">Pause</button>
+              <button class="btn quiet-btn" id="resetTimer" type="button">Reset</button>
+            </div>
+          </article>
+
+          <article class="tool-card glass-panel notes-card">
+            <p class="card-kicker">Smart Notes</p>
+            <h3>Quick Capture</h3>
+            <form class="stack-form" id="noteForm">
+              <textarea id="noteInput" rows="4" placeholder="Write a note..." aria-label="Write a note"></textarea>
+              <button class="btn gradient-btn" type="submit">Add Note</button>
+            </form>
+            <div class="notes-grid" id="notesGrid" aria-live="polite"></div>
+          </article>
+
+          <article class="tool-card glass-panel timetable-card">
+            <p class="card-kicker">Daily Timetable</p>
+            <h3>Plan Your Day</h3>
+            <form class="inline-form" id="timetableForm">
+              <input id="timeInput" type="time" aria-label="Subject time" required>
+              <input id="subjectInput" type="text" placeholder="Subject" aria-label="Subject name" required>
+              <button class="btn gradient-btn" type="submit">Add</button>
+            </form>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Time</th>
+                    <th>Subject</th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody id="timetableBody"></tbody>
+              </table>
+            </div>
+          </article>
+
+          <article class="tool-card glass-panel countdown-card">
+            <p class="card-kicker">Exam Countdown</p>
+            <h3>Deadline Tracker</h3>
+            <label class="field-label" for="examDate">Exam date</label>
+            <input id="examDate" type="datetime-local">
+            <div class="countdown-grid" id="countdownGrid">
+              <div><strong id="daysLeft">0</strong><span>Days</span></div>
+              <div><strong id="hoursLeft">0</strong><span>Hours</span></div>
+              <div><strong id="minutesLeft">0</strong><span>Minutes</span></div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="page" id="coding-basics" data-page="coding-basics">
+      <div class="section-shell full-screen reveal">
+        <div class="section-heading">
+          <p class="eyebrow">Coding Basics</p>
+          <h2>Clean foundations for web builders.</h2>
+        </div>
+
+        <div class="learning-section">
+          <h3>HTML Basics</h3>
+          <div class="code-card-grid" id="htmlBasics"></div>
+        </div>
+
+        <div class="learning-section">
+          <h3>CSS Tricks</h3>
+          <div class="code-card-grid" id="cssTricks"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="page" id="ai-tools" data-page="ai-tools">
+      <div class="section-shell full-screen reveal">
+        <div class="section-heading tools-heading">
+          <div>
+            <p class="eyebrow">AI Tools</p>
+            <h2>Find the right AI helper fast.</h2>
+          </div>
+          <input class="search-input" id="toolSearch" type="search" placeholder="Search tools..." aria-label="Search AI tools">
+        </div>
+
+        <div class="ai-section" data-tool-section>
+          <h3>AI Tools for Study</h3>
+          <div class="ai-card-grid" id="studyAiTools"></div>
+        </div>
+
+        <div class="ai-section" data-tool-section>
+          <h3>AI Tools for Coding</h3>
+          <div class="ai-card-grid" id="codingAiTools"></div>
+        </div>
+
+        <div class="ai-section" data-tool-section>
+          <h3>AI Tools for Productivity</h3>
+          <div class="ai-card-grid" id="productivityAiTools"></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; All rights reserved by valour.exe</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
